@@ -1,30 +1,33 @@
 import React, { Component } from 'react';
 import { View, Text, Picker } from 'react-native';
 import { connect } from 'react-redux';
-import { CardSection, Input } from './common';
+import { Flex, InputItem } from 'antd-mobile';
+import { CardSection } from './common';
 import { employeeUpdate } from '../actions';
 
 class EmployeeForm extends Component {
+
   render() {
       return (
       <View>
        <CardSection>
-          <Input
-            label="Name"
-            placeholder="Jone David"
-            onChangeText={value => this.props.employeeUpdate({ prop: 'name', value })}
-            value={this.props.name}
-          />
+          <Flex.Item>
+            <InputItem
+              placeholder="Jone David"
+              onChange={value => this.props.employeeUpdate({ prop: 'name', value })}
+              value={this.props.name}
+            >Name</InputItem>
+          </Flex.Item>
         </CardSection>
 
         <CardSection>
-          <Input
-            label="Phone"
-            placeholder="123-456-789"
-            value={this.props.phone}
-            onChangeText={value => this.props.employeeUpdate({ prop: 'phone', value })}
-
-          />
+          <Flex.Item>
+            <InputItem
+              placeholder="123-456-789"
+              onChange={value => this.props.employeeUpdate({ prop: 'phone', value })}
+              value={this.props.phone}
+            >Phone</InputItem>
+          </Flex.Item>
         </CardSection>
 
         <CardSection>

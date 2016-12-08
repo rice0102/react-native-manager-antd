@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { Button, Flex, Card } from 'antd-mobile';
 import { employeeUpdate, employeeCreate } from '../actions';
-import { Card, CardSection, Button } from './common';
+import { CardSection } from './common';
 import EmployeeForm from './EmployeeForm';
 
 class EmployeeCreate extends Component {
@@ -16,9 +17,11 @@ class EmployeeCreate extends Component {
       <Card>
         <EmployeeForm {...this.props} />
         <CardSection>
-          <Button onClick={this.onButtonPress.bind(this)}>
-            Create
-          </Button>
+          <Flex.Item>
+            <Button type="ghost" onClick={this.onButtonPress.bind(this)}>
+              Create
+            </Button>
+          </Flex.Item>
         </CardSection>
       </Card>
     );

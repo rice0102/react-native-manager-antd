@@ -1,4 +1,6 @@
-# react-native-manager
+# react-native-manager-antd
+
+##Picker、Modal.alert can not work
 
 use react native implment team app with android studio
 
@@ -9,6 +11,9 @@ tools include:
 3. redux
 4. redux thunk
 5. navigator router
+6. antd-mobile
+
+
 
 # Installation
 

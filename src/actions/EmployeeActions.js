@@ -57,9 +57,10 @@ export const employeeDelete = ({ uid }) => {
 
   return (dispatch) => {
     firebase.database().ref(`/users/${currentUser.uid}/employees/${uid}`)
-    .remove()
-    .then(() => {
-      Actions.employeeList({ type: 'reset' });
-    }); 
+      .remove()
+      .then(() => {
+        dispatch({ type: EMPLOYEE_SAVE_SUCCESS });
+        Actions.employeeList({ type: 'reset' });
+      });
   };
 };

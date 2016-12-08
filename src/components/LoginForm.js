@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { Text } from 'react-native';
 import { connect } from 'react-redux';
+import { Button, Flex, ActivityIndicator, InputItem, Card } from 'antd-mobile';
 import { emailChanged, passwordChanged, loginUser } from '../actions';
-import { Card, CardSection, Input, Spinner } from './common';
-import { Button, Flex, ActivityIndicator } from 'antd-mobile';
+import { CardSection } from './common';
 
 class LoginFrom extends Component {
   onEmailChange(text) {
@@ -41,24 +41,27 @@ class LoginFrom extends Component {
   render() {
     return (
       <Card>
-        <CardSection>
-          <Input
-            label="Email"
-            placeholder="email@gmail.com"
-            onChangeText={this.onEmailChange.bind(this)}
-            value={this.props.email}
-          />
 
+        <CardSection>
+          <Flex.Item>
+            <InputItem
+              placeholder="email@gmail.com"
+              onChange={this.onEmailChange.bind(this)}
+              value={this.props.email}
+            >Email</InputItem>
+          </Flex.Item>
         </CardSection>
 
         <CardSection>
-          <Input
-            secureTextEntry
-            label="Password"
-            placeholder="password"
-            onChangeText={this.onPasswordChange.bind(this)}
-            value={this.props.password}
-          />
+          <Flex.Item>
+            <InputItem
+              placeholder="Password"
+              labelNumber={8}
+              type="password"
+              onChange={this.onPasswordChange.bind(this)}
+              value={this.props.password}
+            >Password</InputItem>
+          </Flex.Item>
         </CardSection>
 
         <Text style={styles.errorTextStyle}>
@@ -68,7 +71,6 @@ class LoginFrom extends Component {
         <CardSection>
           {this.renderButton()}
         </CardSection>
-
       </Card>
     );
   }
